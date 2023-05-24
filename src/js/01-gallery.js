@@ -1,4 +1,6 @@
 import { galleryItems } from './gallery-items.js';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const allGallery = document.querySelector('.gallery');
 const galleryList = galleryItems
@@ -31,13 +33,14 @@ allGallery.addEventListener('click', e => {
 `);
   instance.show();
 
-  allGallery.addEventListener(
-    'keydown',
-    e => {
-      if (e.code === 'Escape') {
-        instance.close();
-      }
-    },
-    { once: true }
-  );
+  allGallery.addEventListener('keydown', e => {
+    if (e.code === 'Escape') {
+      instance.close();
+    }
+  });
 });
+new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
+  captionsData: 'alt',
+});
+// console.log(lightbox);
