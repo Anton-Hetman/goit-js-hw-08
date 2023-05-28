@@ -21,24 +21,24 @@ const galleryList = galleryItems
 
 allGallery.innerHTML = galleryList;
 
-allGallery.addEventListener('click', e => {
-  e.preventDefault();
-  if (e.target.nodeName !== 'IMG') {
-    return console.log('not img');
-  }
-  const eventSource = e.target.getAttribute('data-source');
+// allGallery.addEventListener('click', e => {
+//   e.preventDefault();
+//   if (e.target.nodeName !== 'IMG') {
+//     return console.log('not img');
+//   }
+//   // const eventSource = e.target.getAttribute('data-source');
 
-  const instance = basicLightbox.create(`
-    <img src="${eventSource}" width="800" height="600">
-`);
-  instance.show();
+//   //   const instance = basicLightbox.create(`
+//   //     <img src="${eventSource}" width="800" height="600">
+//   // `);
+//   //   instance.show();
 
-  allGallery.addEventListener('keydown', e => {
-    if (e.code === 'Escape') {
-      instance.close();
-    }
-  });
-});
+//   // allGallery.addEventListener('keydown', e => {
+//   //   if (e.code === 'Escape') {
+//   //     instance.close();
+//   //   }
+//   // });
+// });
 new SimpleLightbox('.gallery a', {
   captionDelay: 250,
   captionsData: 'alt',
